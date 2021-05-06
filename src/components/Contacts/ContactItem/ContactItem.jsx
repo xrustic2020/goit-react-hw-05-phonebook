@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-// import actions from 'redux/actions.js';
-import contactsAction from 'redux/contacts/contacts-action';
+import itemsAction from 'redux/items/items-action';
 import s from './ContactItem.module.css';
 
 const ContactItem = ({ contact, onDeleteContact }) => {
@@ -35,7 +34,7 @@ ContactItem.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     onDeleteContact: contact =>
-      dispatch(contactsAction.deleteContactItem(contact)),
+      dispatch(itemsAction.deleteContactItem(contact)),
   };
 };
 

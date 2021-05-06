@@ -8,8 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import Button from '@material-ui/core/Button';
 
-// import actions from 'redux/actions.js';
-import contactsAction from 'redux/contacts/contacts-action';
+import itemsAction from 'redux/items/items-action';
 import filterAction from 'redux/filter/filter-actions';
 import store from 'redux/store';
 
@@ -29,7 +28,7 @@ const ContactForm = ({ onAddedContact, setFilter }) => {
     setName('');
     setNumber('');
 
-    const prevState = store.getState().items;
+    const prevState = store.getState().contacts.items;
     const contactFound = prevState.find(el => el.name === name);
     if (contactFound) {
       toast.warn(`"${name}" is already in contacts`);
@@ -95,7 +94,7 @@ ContactForm.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     onAddedContact: newContact =>
-      dispatch(contactsAction.addedContact(newContact)),
+      dispatch(itemsAction.addedContact(newContact)),
     setFilter: value => dispatch(filterAction.setFilter(value)),
   };
 };

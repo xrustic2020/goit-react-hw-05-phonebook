@@ -1,2 +1,2 @@
-export const SET_FILTER = 'contacts/setFilter';
-export const RESET = 'contacts/resetFilter';
+export const SET_FILTER = 'filter/set';
+export const RESET = 'filter/reset';

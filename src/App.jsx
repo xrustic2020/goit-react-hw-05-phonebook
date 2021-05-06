@@ -31,7 +31,7 @@ const App = ({ contacts }) => {
 };
 
 const mapStateToProps = state => ({
-  contacts: state.items,
+  contacts: state.contacts.items,
 });
 
 export default connect(mapStateToProps)(App);

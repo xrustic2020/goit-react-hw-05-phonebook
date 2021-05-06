@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { SET_CONTACTS, ADD, DELETE } from './contacts-types';
+import { SET_CONTACTS, ADD, DELETE } from './items-types';
 import store from 'redux/store';
 
 const setContacts = contacts => {
@@ -11,7 +11,7 @@ const addedContact = newContact => {
 };
 
 const deleteContactItem = ({ id, name }) => {
-  const prevState = store.getState().items;
+  const prevState = store.getState().contacts.items;
   toast.success(`Contact "${name}" successfully deleted`);
   return { type: DELETE, payload: [...prevState.filter(el => el.id !== id)] };
 };

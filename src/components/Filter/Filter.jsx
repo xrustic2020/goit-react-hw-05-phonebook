@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import IconButton from '@material-ui/core/IconButton';
 import RotateLeftOutlinedIcon from '@material-ui/icons/RotateLeftOutlined';
 
-// import actions from 'redux/actions.js';
 import filterAction from 'redux/filter/filter-actions';
 import s from './Filter.module.css';
 
@@ -36,7 +35,7 @@ Filter.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  filter: state.filter,
+  filter: state.contacts.filter,
 });
 
 const mapDispatchToProps = dispatch => {
