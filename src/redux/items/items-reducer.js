@@ -1,23 +1,32 @@
+import { createReducer } from '@reduxjs/toolkit';
 import initialState from 'redux/initialState';
-import { SET_CONTACTS, ADD, DELETE } from './items-types';
+import actions from './items-actions.js';
 
-const itemsReducer = (
-  state = initialState.contacts.items,
-  { type, payload },
-) => {
-  switch (type) {
-    case SET_CONTACTS:
-      return [...payload];
+console.log(actions);
 
-    case ADD:
-      return [...state, payload];
+const itemsReducer = createReducer(initialState.contacts.items, {
+  // [actions.setContacts]: (_, payload) => [...payload],
+  'contacts/add': (state, { payload }) => [...state, payload],
+  'contacts/delete': (_, { payload }) => payload,
+});
 
-    case DELETE:
-      return payload;
+// const itemsReducer = (
+//   state = initialState.contacts.items,
+//   { type, payload },
+// ) => {
+//   switch (type) {
+//     // case 'contacts/add':
+//     //   return [...payload];
 
-    default:
-      return state;
-  }
-};
+//     case 'contacts/add':
+//       return [...state, payload];
+
+//     case 'contacts/delete':
+//       return payload;
+
+//     default:
+//       return state;
+//   }
+// };
 
 export default itemsReducer;

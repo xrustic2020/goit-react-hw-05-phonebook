@@ -1,5 +1,5 @@
-import { createStore, combineReducers } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import itemsReducer from './items/items-reducer';
 import filterReducer from './filter/filter-reducer';
 
@@ -8,8 +8,9 @@ const contactsReducer = combineReducers({
   filter: filterReducer,
 });
 
-const rootReducer = combineReducers({ contacts: contactsReducer });
-
-const store = createStore(rootReducer, composeWithDevTools());
+const store = configureStore({
+  reducer: { contacts: contactsReducer },
+  devTools: process.env.NODE_ENV === 'development',
+});
 
 export default store;

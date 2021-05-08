@@ -1,20 +1,10 @@
+import { createReducer } from '@reduxjs/toolkit';
 import initialState from 'redux/initialState';
-import { SET_FILTER, RESET } from './filter-types';
+import actions from './filter-actions';
 
-const filterReducer = (
-  state = initialState.contacts.filter,
-  { type, payload },
-) => {
-  switch (type) {
-    case SET_FILTER:
-      return payload;
-
-    case RESET:
-      return payload;
-
-    default:
-      return state;
-  }
-};
+const filterReducer = createReducer(initialState.contacts.filter, {
+  [actions.setFilter]: (_, { payload }) => payload,
+  [actions.resetFilter]: (_, { payload }) => payload,
+});
 
 export default filterReducer;

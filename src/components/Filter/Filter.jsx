@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 import IconButton from '@material-ui/core/IconButton';
 import RotateLeftOutlinedIcon from '@material-ui/icons/RotateLeftOutlined';
@@ -21,7 +22,13 @@ const Filter = ({ filter, setFilter, onReset }) => {
         />
       </label>
 
-      <IconButton aria-label="delete" onClick={() => onReset(setFilter)}>
+      <IconButton
+        aria-label="delete"
+        onClick={() => {
+          toast.success('Filter cleaned successfully');
+          onReset();
+        }}
+      >
         {filter && <RotateLeftOutlinedIcon />}
       </IconButton>
     </div>
@@ -41,7 +48,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     setFilter: value => dispatch(filterAction.setFilter(value)),
-    onReset: () => dispatch(filterAction.resetFilter()),
+    onReset: () => dispatch(filterAction.resetFilter('')),
   };
 };
 

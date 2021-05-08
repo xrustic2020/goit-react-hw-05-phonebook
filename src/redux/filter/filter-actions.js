@@ -1,14 +1,7 @@
-import { toast } from 'react-toastify';
-import { SET_FILTER, RESET } from './filter-types';
+import { createAction } from '@reduxjs/toolkit';
 
-const setFilter = value => {
-  return { type: SET_FILTER, payload: value };
-};
-
-const resetFilter = () => {
-  toast.success('Filter cleaned successfully');
-  return { type: RESET, payload: '' };
-};
+const setFilter = createAction('filter/set');
+const resetFilter = createAction('filter/reset');
 
 const filterActions = {
   setFilter,

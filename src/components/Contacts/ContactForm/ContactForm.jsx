@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddOutlinedIcon from '@material-ui/icons/AddOutlined';
 import Button from '@material-ui/core/Button';
 
-import itemsAction from 'redux/items/items-action';
+import itemsAction from 'redux/items/items-actions';
 import filterAction from 'redux/filter/filter-actions';
 import store from 'redux/store';
 
